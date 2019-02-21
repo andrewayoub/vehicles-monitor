@@ -1,9 +1,10 @@
 from nameko.rpc import RpcProxy
 from nameko.timer import timer
 import random
+import json
 
 INTERVAL = 60
-
+DATA_PATH = "data.json"
 
 class Simulator(object):
     """
@@ -13,8 +14,9 @@ class Simulator(object):
     monitor = RpcProxy("monitor")
 
     def __init__(self):
-        # TODO: load the correct ids from config file
-        self.ids = [1, 2, 3, 4, 5, 6]
+        file = open(DATA_PATH, "r")
+        self.ids = json.loads(file.read())
+
 
     @timer(interval=INTERVAL)
     def send_ping(self):
