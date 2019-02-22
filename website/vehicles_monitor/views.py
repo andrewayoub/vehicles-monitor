@@ -4,7 +4,7 @@ from .models import Vehicle
 import json
 from nameko.standalone.rpc import ClusterRpcProxy
 
-CONFIG = {'AMQP_URI': "amqp://guest:guest@localhost"}
+CONFIG = {'AMQP_URI': "amqp://guest:guest@rabbitmq:5672"}
 
 def index(request):
     return render(request, "index.html")

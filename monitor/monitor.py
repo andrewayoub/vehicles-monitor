@@ -14,7 +14,7 @@ class Monitor(object):
     name = "monitor"
 
     def __init__(self):
-        self.redis_connection = Redis(host="localhost", port=6379)
+        self.redis_connection = Redis(host="redis", port=6379)
 
     @rpc
     def ping(self, vehicle_id):

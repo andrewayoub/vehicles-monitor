@@ -1,0 +1,49 @@
+version: '3.7'
+
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - 5672:5672
+      - 15672:15672
+
+  redis:
+    image: redis
+
+  monitor:
+    build: monitor/.
+    command: bash /code/start.sh
+    links:
+      - rabbitmq
+      - redis
+    depends_on:
+      - rabbitmq
+
+  simulator:
+    build: simulator/.
+    command: bash /code/start.sh
+    links:
+      - rabbitmq
+    depends_on:
+      - rabbitmq
+
+  db:
+    image: postgres:10.1-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+
+  web:
+    build: website/.
+    command: bash /code/website/start.sh
+    volumes:
+      - .:/code
+    ports:
+      - 8000:8000
+    links:
+      - rabbitmq
+    depends_on:
+      - db
+      - rabbitmq
+
+volumes:
+  postgres_data:

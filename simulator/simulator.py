@@ -6,6 +6,7 @@ import json
 INTERVAL = 60
 DATA_PATH = "data.json"
 
+
 class Simulator(object):
     """
     A service that simulates ping request from the vehicles
@@ -16,7 +17,6 @@ class Simulator(object):
     def __init__(self):
         file = open(DATA_PATH, "r")
         self.ids = json.loads(file.read())
-
 
     @timer(interval=INTERVAL)
     def send_ping(self):
