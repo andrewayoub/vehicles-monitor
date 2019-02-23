@@ -1,0 +1,39 @@
+/*Theme the Tabulator element*/
+#vehicles-table{
+    background-color:#ccc;
+    border: 1px solid #333;
+    border-radius: 10px;
+}
+
+/*Theme the header*/
+#vehicles-table .tabulator-header {
+    background-color:#333;
+    color:#fff;
+}
+
+/*Allow column header names to wrap lines*/
+#vehicles-table .tabulator-header .tabulator-col,
+#vehicles-table .tabulator-header .tabulator-col-row-handle {
+    white-space: normal;
+    background-color: #333
+}
+
+/*Color the table rows*/
+#vehicles-table .tabulator-tableHolder .tabulator-table .tabulator-row{
+    color:#fff;
+    background-color: #666;
+}
+
+/*Color even rows*/
+    #vehicles-table .tabulator-tableHolder .tabulator-table .tabulator-row:nth-child(even) {
+    background-color: #444;
+}
+
+body{
+    background-color: black;
+}
+
+#title {
+    color: white;
+    text-align: center;
+}
