@@ -17,14 +17,21 @@ class Simulator(object):
     def __init__(self):
         file = open(DATA_PATH, "r")
         self.ids = json.loads(file.read())
+        self._send_ping()
 
     @timer(interval=INTERVAL)
     def send_ping(self):
         """
-        recurring task to send ping as from vehicles, a random choice will be done for every vehicle to decide if it
-        will send or not
+        recurring task to send ping as from vehicles
         """
         print("simulating", self.ids)
+        self._send_ping()
+
+    def _send_ping(self):
+        """
+        send ping according to a random choice will be done for every vehicle to decide if it will send or not
+        :return:
+        """
         if not self.ids:
             return
         for vehicle_id in self.ids:
