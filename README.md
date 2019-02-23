@@ -1,6 +1,8 @@
 # Vehicles-Monitor
 A distributed system to monitor vehicles status.
 
+[![Build Status](https://travis-ci.org/andrewayoub/vehicles-monitor.svg?branch=master)](https://travis-ci.org/andrewayoub/vehicles-monitor)
+
 ## Technology stack
 * [Nameko](https://nameko.readthedocs.io/en/stable/) microservices framework
 * [RabbitMQ](https://www.rabbitmq.com/) message broker
