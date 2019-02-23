@@ -15,6 +15,8 @@ To run the full system just use `docker-compose`:
 docker-compose up 
 ```
 
+for steps to run each component separately please see the docs of each component  
+
 ## Problem definition
 
 You are working to company which has a number of vehicles belongs to a number of customer, 
@@ -27,19 +29,22 @@ a ping; no request from the vehicle means no connection so vehicle is either Con
 ![architecture](docs/architecture.jpg)
 
 This solution is composed of three main components  
-* **Monitoring Service:**  
-This service is responsible for:  
+* **[Monitoring Service](monitor/README.md):**  
+A service is responsible for:  
     1- Receives a ping from the vehicle (or the simulator)  
     2- Keeps the last up time for each vehicle in a redis db  
     3- Returns the vehicles ids with its state (whether seen in the last minute or not)
     
-* **Website Service:**
-This service is responsible for serving the website and currently it has only 2 routes:  
+* **[Website Service](website/README.md):**
+A service is responsible for serving the website and currently it has only 2 routes:  
     1- (/): serves the dashboard website containing a table of the vehicles and its state
     2- (/vehicles): a restful endpoint with no params returns the full list of vehicles and gets the status from the 
     monitoring service
     
-* **Simulator Service:**
+* **[Simulator Service](simulator/README.md):**
 This service is responsible for simulating pings from vehicles, eah minute this service sends ping to the monitoring 
 service, it decides randomly if it will or wont send a ping for each vehicle
+
+# Scalability
+This solution is designed for scalability, each component can be horizontally scaled.
 
