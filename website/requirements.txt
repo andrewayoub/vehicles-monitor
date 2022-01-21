@@ -9,7 +9,7 @@ eventlet==0.24.1
 greenlet==0.4.15
 idna==2.8
 importlib-metadata==0.8
-ipython==7.3.0
+ipython==7.16.3
 ipython-genutils==0.2.0
 jedi==0.13.2
 kombu==4.3.0
